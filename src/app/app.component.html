@@ -227,6 +227,22 @@
       </svg>
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
+
+      <!--Début-->
+     
+      <h3>Crud et Calculatrice</h3>
+      <nav>
+        <ul>
+          <li><a routerLink="/crud-component" routerLinkActive="active" ariaCurrentWhenActive="page">Opération CRUD</a></li>
+          <li><a routerLink="/calculator-component" routerLinkActive="active" ariaCurrentWhenActive="page" >Calculatrice</a></li>
+          <li><a routerLink="/httpCrud-component" routerLinkActive="active" ariaCurrentWhenActive="page" >Opération CRUD via RestApi</a></li>
+        </ul>
+      </nav>
+      <router-outlet></router-outlet>
+
+
+
+
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">

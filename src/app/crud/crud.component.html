@@ -1,0 +1,35 @@
+<h3>{{crudTitle}}</h3>
+<h4>Ajouter un employé</h4>
+<!--#formAdd crée une réference locale dans le template et fait une liaison -->
+<form (ngSubmit)="addEmplyoyee(formAdd)" #formAdd="ngForm">
+    <input name="name" value="" ngModel placeholder="name"/> - 
+    <input name="role" value="" ngModel placeholder="role"/> -
+    <button type="submit">Ajouter</button>
+</form>
+<h4>Modifier un employé</h4>
+<form (ngSubmit)="updateEmployee(formUpdate)" #formUpdate="ngForm">
+    <input name="name" [(ngModel)]="selectedEmployee.name" placeholder="Nom" />
+    <input name="role" [(ngModel)]="selectedEmployee.role" placeholder="Rôle" />
+    <button type="submit">Modifier</button>
+</form>
+
+<h4>Listes des employés</h4>
+<!--
+<ul>
+    <li *ngFor="let employee of listEmployee; let i = index">
+        {{employee.name}} - {{employee.role}}
+        <button (click)="deleteEmployee(i)">Supprimer</button>
+    </li>
+</ul>-->
+    
+<ul>
+    @for (employee of listEmployee; track $index) {
+        <li>
+            {{employee.name}} - {{employee.role}} <br>
+            <button (click)="deleteEmployee($index)">Supprimer</button> -
+            <button (click)="selectEmployee($index)">Modifier</button> -
+            <button (click)="selectEmploeeToSee($index)" [routerLink]="['/user-details-component', $index]" routerLinkActive="active" ariaCurrentWhenActive="page">Afficher Détail</button>
+        </li>
+    }
+</ul>
+

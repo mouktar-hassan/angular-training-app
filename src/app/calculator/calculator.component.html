@@ -1,0 +1,22 @@
+<h4>Calculatrice</h4>
+<h5>Addition</h5>
+<input type="number" name="x" placeholder="0" [(ngModel)]="x" (ngModelChange)="calculate('sum')" /> + 
+<input type="number" name="y" placeholder="0" [(ngModel)]="y" (ngModelChange)="calculate('sum')" /> =
+{{result}}
+
+<h5>Division</h5>
+<input type="number" name="xDiv" placeholder="0" [(ngModel)]="xDiv" (ngModelChange)="calculate('division')" /> / 
+<input type="number" name="yDiv" placeholder="0" [(ngModel)]="yDiv" (ngModelChange)="calculate('division')" /> =
+{{resultDiv}}
+
+
+<!-- NB: 
+    - [(ngModel)] est une syntaxe de liaison de données bidirectionnelle.
+    Elle associe la valeur de l'élément de formulaire (dans ce cas, l'input pour x) 
+    à une propriété du composant (ici, la propriété x).
+
+    - ngModelChange est un événement qui est déclenché chaque fois 
+    que la valeur du modèle 
+    change en raison de l'interaction de l'utilisateur.-->
+
+
