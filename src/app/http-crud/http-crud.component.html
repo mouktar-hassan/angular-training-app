@@ -1,4 +1,28 @@
 <h3>HTTP CRUD</h3>
 
-<h4>Liste des employés</h4>
+<h4>Ajouter un utilisateur</h4>
+<!--#formAdd crée une réference locale dans le template et fait une liaison -->
+<form (ngSubmit)="onAddUserClick(formAdd)" #formAdd="ngForm">
+    <input name="nom" value="" ngModel placeholder="nom"/><br/>
+    <input name="prenom" value="" ngModel placeholder="prenom"/><br/>
+    <input name="email" value="" ngModel placeholder="email"/><br/>
+    <input name="motDePasse" value="" ngModel placeholder="motDePasse"/><br/>
+    <input name="role" value="" ngModel placeholder="role"/><br/>
+    <input name="telephone" value="" ngModel placeholder="telephone"/><br/>
+    <input name="adresse" value="" ngModel placeholder="adresse"/><br/>
+    <input name="conducteur" value="" ngModel placeholder="conducteur"/><br/>
+    <input name="partenaire" value="" ngModel placeholder="partenaire"/><br/>
+    <button type="submit">Ajouter</button> - <button (click)="onResetClick">Annuler</button>
+</form>
+<h4>Listes des employés</h4>    
+<ul>
+    @for (user of users; track $index) {
+        <li>
+            {{user.prenom}} - {{user.nom}} - {{user.role}} <br>
+            <button (click)="onDeleteUserClick($index)">Supprimer</button> -
+            <button (click)="selectUser($index)">Modifier</button> -
+            <button [routerLink]="['/user-details-component', $index]" routerLinkActive="active" ariaCurrentWhenActive="page">Afficher Détail</button>
+        </li>
+    }
+</ul>
 
